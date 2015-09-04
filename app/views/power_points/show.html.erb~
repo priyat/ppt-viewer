@@ -1,0 +1,25 @@
+<% folder = @power_point.image_folder%>
+<% path = @power_point.output_path%>
+<% files = Dir.entries(path) %>
+<div id="slides">
+<% files.each do |file|%>
+  <% unless file.starts_with?('.')%>
+  <div class="slide">
+    <%= image_tag(folder+'/'+file) %>
+  </div>
+  <%end%>
+<%end%>
+</div>
+<style>
+.nav-pager {display:none;}
+.slide img {width:700px;height:700px;}
+</style>
+<script>
+$('#slides').presentation({
+   slide: '.slide',
+   prevNextClass: 'nav-prev-next',
+   prevText: '<',
+   nextText: '>',
+   transition: 'fade'
+ });
+</script>

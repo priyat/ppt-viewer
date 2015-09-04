@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>File name</th>
+      <th>File size</th>
+      <th>File type</th>
+      <th>Output path</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @power_points.each do |power_point| %>
+      <tr>
+        <td><%= power_point.pptfile_file_name %></td>
+        <td><%= power_point.pptfile_file_size %></td>
+        <td><%= power_point.pptfile_content_type %></td>
+        <td><%= power_point.output_path %></td>
+        <td><%= link_to "Show", power_point_path(power_point)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Power point', new_power_point_path %>
+
+<style>
+tr, th,td {border: 1px solid grey; padding:10px;}
+</style>
